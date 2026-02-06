@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Deportista {
+    private final int MEDALLAS_DEFAULT = 0;
 
     private String nombre;
     private LocalDate fecha_nacimiento;
@@ -15,7 +16,7 @@ public class Deportista {
     public Deportista (String nombre,int dia, int mes, int anyo){
         this.nombre = nombre;
         fecha_nacimiento = LocalDate.of(anyo,mes,dia);
-        medallas = 0;
+        medallas = MEDALLAS_DEFAULT;
         listaModalidades = new ArrayList<>();
 
 
