@@ -8,7 +8,6 @@ public class Equipo {
     private ArrayList<Deportista> listaDeportistas;
 
 
-
     public Equipo (String pais){
         this.pais = pais;
         listaDeportistas = new ArrayList<>();
@@ -36,12 +35,13 @@ public class Equipo {
     }
 
     public void verMedallero(){
-        System.out.println("Los deportistas que han ganado medallas y cuantas han ganado.");
+        System.out.println("Los deportistas que han ganado medallas para "+this.pais);
         for (Deportista deportista : listaDeportistas){
             if (deportista.getMedallas()>0){
-                System.out.println("El deportista "+ deportista.getNombre()+" ha ganado "+deportista.getMedallas()+" medallas");
+                System.out.println("-El deportista "+ deportista.getNombre()+" ha ganado "+deportista.getMedallas()+" medallas");
             }
         }
+        System.out.println(" ");
 
     }
 
@@ -56,6 +56,35 @@ public class Equipo {
 
         return masMedallas;
 
+    }
+
+    public void verMedallasDeportista(Deportista deportista1){
+        if (listaDeportistas.contains(deportista1)){
+
+            int posicion = listaDeportistas.indexOf(deportista1);
+            Deportista copia = listaDeportistas.get(posicion);
+
+            if (copia.getMedallas()>0){
+                System.out.println("El deportista "+copia.getNombre()+" tiene "+copia.getMedallas()+ " medallas");
+            }else {
+                System.out.println("El deportista "+copia.getNombre()+ " de "+copia.getEquipo().getPais()+" no ha ganado ninguna medalla durante estos JJOO");
+            }
+
+        }else {
+            System.out.println("El deportista "+deportista1.getNombre()+" no pertenece al equipo de "+this.pais);
+        }
+
+
+    }
+
+    public Deportista deportistaMasJoven(){
+        Deportista masJoven = new Deportista(null,1,1,1000);
+        for (Deportista deportista : listaDeportistas){
+            if (deportista.getFecha_nacimiento().isAfter(masJoven.getFecha_nacimiento())){
+                masJoven = deportista;
+            }
+        }
+        return masJoven;
     }
 
     public String getPais() {

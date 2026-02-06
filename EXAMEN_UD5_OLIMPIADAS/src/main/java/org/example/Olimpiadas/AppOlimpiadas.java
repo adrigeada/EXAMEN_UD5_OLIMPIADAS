@@ -30,6 +30,10 @@ public class AppOlimpiadas {
 
         System.out.println(italia.deportistaTop());
 
+        italia.verMedallasDeportista(tres);
+
+        System.out.println(italia.deportistaMasJoven());
+
 
     }
 }

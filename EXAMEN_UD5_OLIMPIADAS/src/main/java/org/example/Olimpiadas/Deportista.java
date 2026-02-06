@@ -35,7 +35,8 @@ public class Deportista {
 
 
     public void verModalidades(){
-        System.out.println("El deportista "+this.nombre+ " está inscrito a las siguientes modalidades:");
+        System.out.println(" ");
+        System.out.println("El deportista "+this.nombre+ " está inscrito en "+listaModalidades.size()+" modalidades:");
         for (String modalidad : listaModalidades){
             System.out.println("- "+modalidad);
         }
